@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ShoppingListService } from '../shopping-list.service';
 
 @Component({
@@ -11,7 +12,11 @@ export class ShoppingEditComponent implements OnInit {
 
   ngOnInit() {}
 
-  onSubmit(name: string, amount: number) {
-    this.slServide.addIngredient({ name, amount });
+  onSubmit(form: NgForm) {
+    console.log(form);
+    this.slServide.addIngredient({
+      name: form.value.name,
+      amount: form.value.amount,
+    });
   }
 }

@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-12">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          type="email"
+          ngModel
+          name="email"
+          id="email"
+          class="form-control"
+          required
+          email
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          ngModel
+          name="password"
+          type="text"
+          type="password"
+          id="password"
+          class="form-control"
+          required
+        />
+      </div>
+      <button type="submit" class="btn mr-1 btn-success" [disabled]="!f.valid">
+        {{ isLoginMode ? "Login" : "Register" }}
+      </button>
+      <button
+        type="button"
+        (click)="onSwitchMode()"
+        class="btn ml-1 btn-primary"
+      >
+        Switch to {{ !isLoginMode ? "Login" : "Register" }}
+      </button>
+    </form>
+  </div>
+</div>
